@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@angular-architects/ddd@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@angular-architects/ddd/-/ddd-1.1.4.tgz#9439667811a63b87638487e66c5f09fff0cf7ba7"
+  integrity sha512-UVFuGYtxARhd+CZbwGyOYn3q0Nf9tXGPa7qK263myowwxRAzSj+78RWqNprP/2pwS/1+YV+6TPRdh3BmOtYkjg==
+
 "@angular-devkit/architect@0.901.0":
   version "0.901.0"
   resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.901.0.tgz#c660cb76e3bd35fc294d8e8578782b83157924aa"
