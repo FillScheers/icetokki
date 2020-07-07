@@ -16,7 +16,7 @@ stages:
 before_script:
   - yarn global add @nrwl/cli @angular/cli --cache-folder .yarn
   - yarn install --pure-lockfile --cache-folder .yarn
-  - sed -ri "s|\'VERSION\'|\'$CI_COMMIT_SHA\'|" apps/tokkify/src/environments/environment.prod.ts
+  - sed -ri s/\'VERSION\'/\'$CI_COMMIT_SHA\'/ apps/tokkify/src/environments/environment.prod.ts
 
 build:
   stage: build
@@ -28,7 +28,8 @@ build:
       - dist
 
 deploy:
-  cache: {}
+  cache:
+    key: none1
   before_script:
     - echo 'before script'
   stage: deploy
@@ -41,7 +42,8 @@ deploy:
       firebase deploy --project tokkify-song-requests --token $FIREBASE_TOKEN
 
 sentry_job:
-  cache: {}
+  cache:
+    key: none1
   before_script:
     - echo 'before script'
   only:
