@@ -29,6 +29,7 @@ build:
 
 deploy:
   cache: {}
+  before_script: {}
   stage: deploy
   only:
     refs:
@@ -40,6 +41,7 @@ deploy:
 
 sentry_job:
   cache: {}
+  before_script: {}
   only:
     refs:
       - master
