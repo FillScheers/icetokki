@@ -30,6 +30,7 @@ build:
 deploy:
   cache: {}
   before_script:
+    - echo 'before script'
   stage: deploy
   only:
     refs:
@@ -42,6 +43,7 @@ deploy:
 sentry_job:
   cache: {}
   before_script:
+    - echo 'before script'
   only:
     refs:
       - master
