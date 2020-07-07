@@ -25,7 +25,6 @@ build:
   artifacts:
     paths:
       - dist
-      - node_modules
 
 deploy:
   stage: deploy
