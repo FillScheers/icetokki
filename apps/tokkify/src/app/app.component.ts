@@ -14,4 +14,8 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.app.init();
   }
+
+  error() {
+    throw new Error('testing things...');
+  }
 }
