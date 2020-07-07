@@ -10,12 +10,13 @@ cache:
 stages:
   - build
   - test
-  - deploy
   - sentry
+  - deploy
 
 before_script:
   - yarn global add @nrwl/cli @angular/cli --cache-folder .yarn
   - yarn install --pure-lockfile --cache-folder .yarn
+  - sed -ri "s|\"VERSION\"|\"$CI_COMMIT_SHA\"|" apps/tokkify/src/environments/environment.prod.ts
 
 build:
   stage: build
@@ -27,6 +28,7 @@ build:
       - dist
 
 deploy:
+  cache: {}
   stage: deploy
   only:
     refs:
@@ -35,3 +37,22 @@ deploy:
     - |
       yarn global add firebase-tools
       firebase deploy --project tokkify-song-requests --token $FIREBASE_TOKEN
+
+sentry_job:
+  cache: {}
+  only:
+    refs:
+      - master
+  stage: sentry
+  image: getsentry/sentry-cli
+  script:
+    - echo "Create a new release $CI_COMMIT_SHA"
+    #- export SENTRY_URL=$SENTRY_BASE_URL
+    - export SENTRY_AUTH_TOKEN=$SENTRY_BASE_TOKEN
+    - export SENTRY_ORG=$SENTRY_BASE_ORGANIZATION
+    - export SENTRY_PROJECT=$SENTRY_BASE_PROJECT
+    - sentry-cli releases new $CI_COMMIT_SHA
+    - sentry-cli releases set-commits --auto $CI_COMMIT_SHA
+    - sentry-cli releases files $CI_COMMIT_SHA upload-sourcemaps $CI_PROJECT_DIR/dist -x .js -x .map --validate --verbose --rewrite --strip-common-prefix
+    - sentry-cli releases finalize $CI_COMMIT_SHA
+    - echo "Finalized release for $CI_COMMIT_SHA"

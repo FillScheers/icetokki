@@ -30,9 +30,7 @@
               "apps/tokkify/src/favicon.ico",
               "apps/tokkify/src/assets"
             ],
-            "styles": [
-              "apps/tokkify/src/styles.scss"
-            ],
+            "styles": ["apps/tokkify/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -45,7 +43,11 @@
               ],
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": false,
+              "sourceMap": {
+                "hidden": true,
+                "scripts": true,
+                "styles": true
+              },
               "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
@@ -91,10 +93,7 @@
               "apps/tokkify/tsconfig.app.json",
               "apps/tokkify/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/tokkify/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/tokkify/**/*"]
           }
         },
         "test": {
@@ -133,13 +132,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/tokkify-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/tokkify-e2e/**/*"
-            ]
+            "tsConfig": ["apps/tokkify-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/tokkify-e2e/**/*"]
           }
         }
       }
@@ -157,9 +151,7 @@
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": [
-              "apps/api/src/assets"
-            ]
+            "assets": ["apps/api/src/assets"]
           },
           "configurations": {
             "production": {
@@ -188,10 +180,7 @@
               "apps/api/tsconfig.app.json",
               "apps/api/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/api/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/api/**/*"]
           }
         },
         "test": {
@@ -217,10 +206,7 @@
               "libs/api-interfaces/tsconfig.lib.json",
               "libs/api-interfaces/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/api-interfaces/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/api-interfaces/**/*"]
           }
         },
         "test": {

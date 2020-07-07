@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { reducer, AppEffects } from './+state';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SentryErrorHandler } from './sentry.error-handler';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EffectsModule.forRoot([AppEffects]),
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [{ provide: ErrorHandler, useClass: SentryErrorHandler }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
