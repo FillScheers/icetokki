@@ -1,0 +1,5 @@
+{
+  "yaml.schemas": {
+    "./.gitlab-ci.yml": "http://json.schemastore.org/gitlab-ci"
+  }
+}

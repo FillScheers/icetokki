@@ -1,17 +1,11 @@
 import { Injectable } from '@angular/core';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
-import { init } from './app.actions';
+import { init, pong } from './app.actions';
 import { map } from 'rxjs/operators';
+import { AppSocket } from '../app.socket';
+import { timer } from 'rxjs';
 
-@Injectable()
-export class AppEffects {
-  onInit = createEffect(
-    () =>
-      this.actions$.pipe(
-        ofType(init),
-        map(() => {
-          console.log(
-            `Welcome to tokkify!
+const message = `Welcome to tokkify!
 
 I see, you like debugging.
 Well you are in luck.
@@ -23,11 +17,32 @@ Fill Scheers. AKA FillBOT 🤖
 
 
 
-`
-          );
+`;
+
+@Injectable()
+export class AppEffects {
+  onInit = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(init),
+        map(() => {
+          console.log(message);
         })
       ),
     { dispatch: false }
   );
-  constructor(private actions$: Actions) {}
+
+  onPong = createEffect(() =>
+    this.appSocket.fromEvent<number>('a-pong').pipe(
+      map((x) => {
+        return pong({ serverTime: new Date(x) });
+      })
+    )
+  );
+
+  constructor(private actions$: Actions, private appSocket: AppSocket) {
+    timer(0, 10000).subscribe(() => {
+      appSocket.emit('a-ping');
+    });
+  }
 }

@@ -1,0 +1,38 @@
+image: node:lts
+
+cache:
+  key: none
+  paths:
+    - .yarn
+    - node_modules
+    - dist
+
+stages:
+  - build
+  - test
+  - deploy
+  - sentry
+
+before_script:
+  - yarn global add @nrwl/cli @angular/cli --cache-folder .yarn
+  - yarn install --pure-lockfile --cache-folder .yarn
+
+build:
+  stage: build
+  script:
+    - |
+      nx build --prod
+  artifacts:
+    paths:
+      - dist
+      - node_modules
+
+deploy:
+  stage: deploy
+  only:
+    refs:
+      - master
+  script:
+    - |
+      yarn global add firebase-tools
+      firebase deploy --token $FIREBASE_TOKEN

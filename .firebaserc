@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "tokkify-song-requests": {
+      "hosting": {
+        "tokkify": [
+          "tokkify-song-requests"
+        ]
+      }
+    }
+  }
+}
