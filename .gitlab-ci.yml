@@ -20,9 +20,12 @@ before_script:
 
 build:
   stage: build
+  variables:
+    GIT_STRATEGY: clone
   script:
+    - git checkout -B master origin/master
     - |
-      nx build --prod
+      nx affected:build --prod
   artifacts:
     paths:
       - dist
@@ -38,9 +41,12 @@ lint:
 
 test:
   stage: test
+  variables:
+    GIT_STRATEGY: clone
   script:
+    - git checkout -B master origin/master
     - |
-      ng test --code-coverage
+      nx affected:test --code-coverage
       bash <(curl -s https://codecov.io/bash)
 
 e2e:
