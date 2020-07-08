@@ -14,6 +14,11 @@ import { reducer, AppEffects } from './+state';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SentryErrorHandler } from './sentry.error-handler';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirePerformanceModule } from '@angular/fire/performance';
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -28,6 +33,10 @@ import { SentryErrorHandler } from './sentry.error-handler';
     StoreRouterConnectingModule.forRoot(),
     EffectsModule.forRoot([AppEffects]),
     BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAnalyticsModule,
+    AngularFireMessagingModule,
+    AngularFirePerformanceModule,
   ],
   providers: [{ provide: ErrorHandler, useClass: SentryErrorHandler }],
   bootstrap: [AppComponent],
