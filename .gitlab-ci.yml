@@ -44,6 +44,7 @@ test:
       bash <(curl -s https://codecov.io/bash)
 
 e2e:
+  image: cypress/browsers
   stage: test
   variables:
     GIT_STRATEGY: clone
