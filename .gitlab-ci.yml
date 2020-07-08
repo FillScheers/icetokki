@@ -31,7 +31,10 @@ build:
       - dist
 
 lint:
+  allow_failure: true
   stage: test
+  cache:
+    policy: pull
   variables:
     GIT_STRATEGY: clone
   script:
@@ -41,6 +44,8 @@ lint:
 
 test:
   stage: test
+  cache:
+    policy: pull
   variables:
     GIT_STRATEGY: clone
   script:
@@ -50,7 +55,10 @@ test:
       bash <(curl -s https://codecov.io/bash)
 
 e2e:
+  allow_failure: true
   image: cypress/base:12
+  cache:
+    policy: pull
   stage: test
   variables:
     GIT_STRATEGY: clone
