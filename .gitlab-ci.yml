@@ -27,6 +27,25 @@ build:
     paths:
       - dist
 
+lint:
+  stage: test
+  script:
+    - |
+      nx affected:lint
+
+test:
+  stage: test
+  script:
+    - |
+      ng test --code-coverage
+      bash <(curl -s https://codecov.io/bash)
+
+e2e:
+  stage: test
+  script:
+    - |
+      nx affected:e2e
+
 deploy:
   cache:
     key: none1
