@@ -29,7 +29,10 @@ build:
 
 lint:
   stage: test
+  variables:
+    GIT_STRATEGY: clone
   script:
+    - git checkout -B master origin/master
     - |
       nx affected:lint
 
@@ -42,7 +45,10 @@ test:
 
 e2e:
   stage: test
+  variables:
+    GIT_STRATEGY: clone
   script:
+    - git checkout -B master origin/master
     - |
       nx affected:e2e
 
