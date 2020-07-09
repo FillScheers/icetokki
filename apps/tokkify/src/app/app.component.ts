@@ -14,17 +14,13 @@ import { AngularFireAnalytics } from '@angular/fire/analytics';
 export class AppComponent implements OnInit {
   serverTime$ = this.app.serverTime$;
   message$: Observable<any>;
-  constructor(
-    private app: AppFacade,
-    private messaging: MessagingService,
-  ) {}
+  constructor(private app: AppFacade, private messaging: MessagingService) {}
   ngOnInit(): void {
     this.app.init();
     this.messaging.requestPermission();
     this.message$ = this.messaging.messages;
-  }
-
-  error() {
-    throw new Error('testing things...');
+    this.message$.subscribe((message) => {
+      console.log(message);
+    });
   }
 }

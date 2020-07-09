@@ -1,5 +1,7 @@
-importScripts('https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/7.6.0/firebase-messaging.js');
+importScripts('https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js');
+importScripts(
+  'https://www.gstatic.com/firebasejs/7.15.5/firebase-messaging.js'
+);
 firebase.initializeApp({
   apiKey: 'AIzaSyBvvuiTQ53IFMN_KKVoEDF-Rr5jimn37QQ',
   authDomain: 'tokkify-song-requests.firebaseapp.com',

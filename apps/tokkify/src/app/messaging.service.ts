@@ -3,18 +3,14 @@ import { AngularFireMessaging } from '@angular/fire/messaging';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { switchMap, tap } from 'rxjs/operators';
 import { from } from 'rxjs';
-import { AngularFireAnalytics } from '@angular/fire/analytics';
 
 @Injectable({ providedIn: 'root' })
 export class MessagingService {
   messages = this.messaging.messages;
   constructor(
     private messaging: AngularFireMessaging,
-    private firestore: AngularFirestore,
-    private analytics: AngularFireAnalytics
-  ) {
-    analytics.setAnalyticsCollectionEnabled(true);
-  }
+    private firestore: AngularFirestore
+  ) {}
   requestPermission() {
     this.messaging.requestToken
       .pipe(
