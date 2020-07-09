@@ -6,4 +6,5 @@
   />
 </div>
 {{ serverTime$ | async | date: 'long' }}
+{{ message$ | async | json }}
 <button (click)="error()"></button>

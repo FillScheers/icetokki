@@ -28,7 +28,9 @@
             "aot": true,
             "assets": [
               "apps/tokkify/src/favicon.ico",
-              "apps/tokkify/src/assets"
+              "apps/tokkify/src/firebase-messaging-sw.js",
+              "apps/tokkify/src/assets",
+              "apps/tokkify/src/manifest.webmanifest"
             ],
             "styles": ["apps/tokkify/src/styles.scss"],
             "scripts": []
@@ -64,7 +66,9 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "apps/tokkify/ngsw-config.json"
             }
           }
         },
