@@ -17,13 +17,11 @@ export class AppComponent implements OnInit {
   constructor(
     private app: AppFacade,
     private messaging: MessagingService,
-    private analytics: AngularFireAnalytics
   ) {}
   ngOnInit(): void {
     this.app.init();
     this.messaging.requestPermission();
     this.message$ = this.messaging.messages;
-    this.analytics.setAnalyticsCollectionEnabled(true);
   }
 
   error() {
