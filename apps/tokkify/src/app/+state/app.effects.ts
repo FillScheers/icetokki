@@ -10,7 +10,7 @@ const message = `Welcome to tokkify!
 I see, you like debugging.
 Well you are in luck.
 You can get the source code from:
-https://gitlab.devvix.com/fillscheers/icetokki.
+https://gitlab.devvix.com/devvix/icetokki.
 Have fun ^^. ❤
 
 Fill Scheers. AKA FillBOT 🤖
