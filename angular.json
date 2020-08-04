@@ -18,7 +18,13 @@
             "allowedCommonJsDependencies": [
               "socket.io-client",
               "debug",
-              "socket.io-parser"
+              "socket.io-parser",
+              "firebase/app",
+              "@firebase/app",
+              "@firebase/firestore",
+              "@firebase/performance",
+              "@firebase/component",
+              "@firebase/util"
             ],
             "outputPath": "dist/apps/tokkify",
             "index": "apps/tokkify/src/index.html",
@@ -33,7 +39,11 @@
               "apps/tokkify/src/manifest.webmanifest"
             ],
             "styles": ["apps/tokkify/src/styles.scss"],
-            "scripts": []
+            "scripts": [],
+            "sourceMap": {
+              "scripts": true,
+              "styles": true
+            }
           },
           "configurations": {
             "production": {
@@ -220,6 +230,144 @@
             "tsConfig": "libs/api-interfaces/tsconfig.spec.json",
             "passWithNoTests": true
           }
+        }
+      }
+    },
+    "playlist-domain": {
+      "projectType": "library",
+      "root": "libs/playlist/domain",
+      "sourceRoot": "libs/playlist/domain/src",
+      "prefix": "playlist",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/playlist/domain/tsconfig.lib.json",
+            "project": "libs/playlist/domain/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/playlist/domain/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/playlist/domain/tsconfig.lib.json",
+              "libs/playlist/domain/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/playlist/domain/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/playlist/domain/jest.config.js",
+            "tsConfig": "libs/playlist/domain/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/playlist/domain/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "playlist-feature-create": {
+      "projectType": "library",
+      "root": "libs/playlist/feature-create",
+      "sourceRoot": "libs/playlist/feature-create/src",
+      "prefix": "playlist",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/playlist/feature-create/tsconfig.lib.json",
+            "project": "libs/playlist/feature-create/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/playlist/feature-create/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/playlist/feature-create/tsconfig.lib.json",
+              "libs/playlist/feature-create/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/playlist/feature-create/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/playlist/feature-create/jest.config.js",
+            "tsConfig": "libs/playlist/feature-create/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/playlist/feature-create/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "playlist-feature-manage": {
+      "projectType": "library",
+      "root": "libs/playlist/feature-manage",
+      "sourceRoot": "libs/playlist/feature-manage/src",
+      "prefix": "playlist",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/playlist/feature-manage/tsconfig.lib.json",
+            "project": "libs/playlist/feature-manage/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/playlist/feature-manage/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/playlist/feature-manage/tsconfig.lib.json",
+              "libs/playlist/feature-manage/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/playlist/feature-manage/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/playlist/feature-manage/jest.config.js",
+            "tsConfig": "libs/playlist/feature-manage/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/playlist/feature-manage/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
         }
       }
     }

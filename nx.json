@@ -23,7 +23,7 @@
   },
   "projects": {
     "tokkify": {
-      "tags": []
+      "tags": ["type:application"]
     },
     "tokkify-e2e": {
       "tags": [],
@@ -34,6 +34,15 @@
     },
     "api-interfaces": {
       "tags": []
+    },
+    "playlist-domain": {
+      "tags": ["domain:playlist", "type:domain-logic"]
+    },
+    "playlist-feature-create": {
+      "tags": ["domain:playlist", "type:feature"]
+    },
+    "playlist-feature-manage": {
+      "tags": ["domain:playlist", "type:feature"]
     }
   }
 }

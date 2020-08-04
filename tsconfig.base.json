@@ -16,7 +16,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@icetokki/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@icetokki/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@icetokki/playlist/domain": ["libs/playlist/domain/src/index.ts"],
+      "@icetokki/playlist/feature-create": [
+        "libs/playlist/feature-create/src/index.ts"
+      ],
+      "@icetokki/playlist/feature-manage": [
+        "libs/playlist/feature-manage/src/index.ts"
+      ]
     }
   },
   "angularCompilerOptions": {

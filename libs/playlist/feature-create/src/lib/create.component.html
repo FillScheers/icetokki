@@ -1,0 +1,8 @@
+<h1>playlist-create</h1>
+
+<table class="table">
+  <tr *ngFor="let playlist of playlistList$ | async">
+    <td>{{ playlist.title }}</td>
+    <td>{{ playlist.songs | json }}</td>
+  </tr>
+</table>

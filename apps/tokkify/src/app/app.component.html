@@ -1,9 +1,6 @@
-<div style="text-align: center;">
-  <h1>Welcome to tokkify!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-  />
-</div>
-{{ serverTime$ | async | date: 'long' }}
-{{ message$ | async | json }}
+<mat-drawer-container class="parent" autosize>
+  <mat-drawer #drawer> </mat-drawer>
+  <mat-drawer-content class="content">
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -1,0 +1,80 @@
+<h1>playlist-manage</h1>
+
+<table
+  mat-table
+  #table
+  [dataSource]="playlistList$ | async"
+  class="mat-elevation-z8"
+>
+  <mat-text-column name="title"></mat-text-column>
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef class="justify-colum-right">
+      Actions
+    </th>
+    <td mat-cell *matCellDef="let playlist" class="justify-colum-right">
+      <button mat-icon-button [mat-menu-trigger-for]="actionMenu">
+        <mat-icon>more_horiz</mat-icon>
+      </button>
+      <mat-menu #actionMenu>
+        <button mat-menu-item [routerLink]="[playlist.id]">
+          <mat-icon color="primary">edit</mat-icon> <span>edit</span>
+        </button>
+        <button mat-menu-item (click)="delete(playlist)">
+          <mat-icon color="warn">delete</mat-icon> <span>delete</span>
+        </button>
+      </mat-menu>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="['title', 'actions']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['title', 'actions']"></tr>
+</table>
+
+<table mat-table #songTable [dataSource]="songList$ | async">
+  <mat-text-column name="title"></mat-text-column>
+  <ng-container matColumnDef="url">
+    <th mat-header-cell *matHeaderCellDef>Url</th>
+    <td mat-cell *matCellDef="let song">
+      <a
+        *ngIf="song.streamable"
+        [href]="
+          'https://connect.monstercat.com/v2/release/' +
+          song.release +
+          '/track-stream/' +
+          song.id
+        "
+      >
+        play</a
+      >
+    </td>
+  </ng-container>
+  <mat-text-column name="bpm"></mat-text-column>
+  <mat-text-column name="artists"></mat-text-column>
+  <mat-text-column name="genrePrimary"></mat-text-column>
+  <mat-text-column name="genreSecondary"></mat-text-column>
+
+  <tr
+    mat-header-row
+    *matHeaderRowDef="[
+      'title',
+      'bpm',
+      'artists',
+      'genrePrimary',
+      'genreSecondary',
+      'url'
+    ]"
+  ></tr>
+  <tr
+    mat-row
+    *matRowDef="
+      let row;
+      columns: [
+        'title',
+        'bpm',
+        'artists',
+        'genrePrimary',
+        'genreSecondary',
+        'url'
+      ]
+    "
+  ></tr>
+</table>

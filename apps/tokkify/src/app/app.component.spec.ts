@@ -4,12 +4,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppFacade } from './+state';
 import { MessagingService } from './messaging.service';
+import { RouterTestingModule } from '@angular/router/testing';
+import { CommonModule } from '@angular/common';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AppComponent],
-      imports: [],
+      imports: [CommonModule, RouterTestingModule],
       providers: [
         { provide: AppFacade, useValue: {} },
         { provide: MessagingService, useValue: {} },

@@ -41,7 +41,7 @@ export class AppEffects {
   );
 
   constructor(private actions$: Actions, private appSocket: AppSocket) {
-    timer(0, 10000).subscribe(() => {
+    timer(0, 20000).subscribe(() => {
       appSocket.emit('a-ping');
     });
   }

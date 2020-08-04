@@ -59,7 +59,7 @@ export class SentryErrorHandler implements ErrorHandler {
     return null;
   }
 
-  handleError(error) {
+  handleError(error: any) {
     const extractedError = this.extractError(error) || 'Handled unknown error';
 
     // Capture handled exception and send it to Sentry.

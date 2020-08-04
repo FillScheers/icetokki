@@ -59,6 +59,10 @@ e2e:
   image: cypress/base:12
   cache:
     policy: pull
+  artifacts:
+    when: on_failure
+    paths:
+      - dist
   stage: test
   variables:
     GIT_STRATEGY: clone
