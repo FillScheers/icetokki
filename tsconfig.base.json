@@ -30,5 +30,56 @@
     "strictTemplates": true,
     "strictInjectionParameters": true
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": ["node_modules", "tmp"],
+  "files": [],
+  "references": [
+    {
+      "path": "./apps/tokkify/tsconfig.app.json"
+    },
+    {
+      "path": "./apps/tokkify/tsconfig.spec.json"
+    },
+    {
+      "path": "./apps/tokkify-e2e/tsconfig.e2e.json"
+    },
+    {
+      "path": "./apps/api/tsconfig.app.json"
+    },
+    {
+      "path": "./apps/api/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/api-interfaces/tsconfig.spec.json"
+    },
+    {
+      "path": "./player-domain/tsconfig.lib.json"
+    },
+    {
+      "path": "./player-domain/tsconfig.spec.json"
+    },
+    {
+      "path": "./player-feature-player/tsconfig.lib.json"
+    },
+    {
+      "path": "./player-feature-player/tsconfig.spec.json"
+    },
+    {
+      "path": "./playlist-domain/tsconfig.lib.json"
+    },
+    {
+      "path": "./playlist-domain/tsconfig.spec.json"
+    },
+    {
+      "path": "./playlist-feature-create/tsconfig.lib.json"
+    },
+    {
+      "path": "./playlist-feature-create/tsconfig.spec.json"
+    },
+    {
+      "path": "./playlist-feature-manage/tsconfig.lib.json"
+    },
+    {
+      "path": "./playlist-feature-manage/tsconfig.spec.json"
+    }
+  ]
 }

@@ -239,35 +239,11 @@
       "sourceRoot": "libs/playlist/domain/src",
       "prefix": "playlist",
       "architect": {
-        "build": {
-          "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/playlist/domain/tsconfig.lib.json",
-            "project": "libs/playlist/domain/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/playlist/domain/tsconfig.lib.prod.json"
-            }
-          }
-        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "libs/playlist/domain/tsconfig.lib.json",
-              "libs/playlist/domain/tsconfig.spec.json"
-            ],
+            "tsConfig": ["libs/playlist/domain/tsconfig.lib.json"],
             "exclude": ["**/node_modules/**", "!libs/playlist/domain/**/*"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/playlist/domain/jest.config.js",
-            "tsConfig": "libs/playlist/domain/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/playlist/domain/src/test-setup.ts"
           }
         }
       },
@@ -283,38 +259,14 @@
       "sourceRoot": "libs/playlist/feature-create/src",
       "prefix": "playlist",
       "architect": {
-        "build": {
-          "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/playlist/feature-create/tsconfig.lib.json",
-            "project": "libs/playlist/feature-create/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/playlist/feature-create/tsconfig.lib.prod.json"
-            }
-          }
-        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "libs/playlist/feature-create/tsconfig.lib.json",
-              "libs/playlist/feature-create/tsconfig.spec.json"
-            ],
+            "tsConfig": ["libs/playlist/feature-create/tsconfig.lib.json"],
             "exclude": [
               "**/node_modules/**",
               "!libs/playlist/feature-create/**/*"
             ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/playlist/feature-create/jest.config.js",
-            "tsConfig": "libs/playlist/feature-create/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/playlist/feature-create/src/test-setup.ts"
           }
         }
       },
@@ -330,38 +282,14 @@
       "sourceRoot": "libs/playlist/feature-manage/src",
       "prefix": "playlist",
       "architect": {
-        "build": {
-          "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/playlist/feature-manage/tsconfig.lib.json",
-            "project": "libs/playlist/feature-manage/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/playlist/feature-manage/tsconfig.lib.prod.json"
-            }
-          }
-        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "libs/playlist/feature-manage/tsconfig.lib.json",
-              "libs/playlist/feature-manage/tsconfig.spec.json"
-            ],
+            "tsConfig": ["libs/playlist/feature-manage/tsconfig.lib.json"],
             "exclude": [
               "**/node_modules/**",
               "!libs/playlist/feature-manage/**/*"
             ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/playlist/feature-manage/jest.config.js",
-            "tsConfig": "libs/playlist/feature-manage/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/playlist/feature-manage/src/test-setup.ts"
           }
         }
       },
@@ -373,7 +301,8 @@
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular"
+    "defaultCollection": "@nrwl/angular",
+    "analytics": "3ca1ef7e-4e4d-44f2-b9f3-01087e9bbd0b"
   },
   "schematics": {
     "@nrwl/angular:application": {

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
-import { init, pong } from './app.actions';
+import { init } from './app.actions';
 import { map } from 'rxjs/operators';
 import { AppSocket } from '../app.socket';
 import { timer } from 'rxjs';
@@ -32,13 +32,13 @@ export class AppEffects {
     { dispatch: false }
   );
 
-  onPong = createEffect(() =>
-    this.appSocket.fromEvent<number>('a-pong').pipe(
-      map((x) => {
-        return pong({ serverTime: new Date(x) });
-      })
-    )
-  );
+  // onPong = createEffect(() =>
+  //   this.appSocket.fromEvent<number>('a-pong').pipe(
+  //     map((x) => {
+  //       return pong({ serverTime: new Date(x) });
+  //     })
+  //   )
+  // );
 
   constructor(private actions$: Actions, private appSocket: AppSocket) {
     timer(0, 20000).subscribe(() => {
